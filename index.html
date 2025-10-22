@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devapriya | Frontend-Developer</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    :root {
+        --bg-color: #121212;
+        --text-color: #ffffff;
+        --primary-color: #ff4da6;
+        --secondary-color: #1e1e1e;
+        --shadow: 0 5px 15px rgba(255, 77, 166, 0.3);
+        --transition: all 0.3s ease;
+    }
+
+    body {
+        background: var(--bg-color);
+        color: var(--text-color);
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        overflow-x: hidden;
+        transition: var(--transition);
+        position: relative;
+    }
+
+    #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        top: 0;
+        left: 0;
+    }
+    .hero { 
+        padding: 120px 0 100px; 
+        text-align: center; 
+    }
+    .hero h1 {
+         font-size: 3.5rem; 
+         font-weight: 800;
+         margin-bottom: 20px; 
+        }
+    .hero p {
+         font-size: 1.2rem; 
+         margin-bottom: 30px;
+         max-width: 600px;
+         margin-left:auto;
+         margin-right:auto; 
+        }
+    .hero img { 
+        max-width: 350px; 
+        border-radius: 10%; 
+        border: 4px solid var(--primary-color); 
+        box-shadow: var(--shadow); 
+    }
+
+    .btn-primary {
+        background: var(--primary-color);
+        color: var(--text-color);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: var(--transition);
+    }
+    .btn-primary:hover { 
+        transform: translateY(-3px);
+        background-color: black; 
+        box-shadow: var(--shadow);
+     }
+    .btn-outline-light {
+        border: 2px solid var(--text-color);
+        color: var(--text-color);
+        padding: 10px 28px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: var(--transition);
+    }
+    .btn-outline-light:hover { 
+        background: var(--primary-color); 
+        color: var(--text-color); 
+    }
+
+    .section-title { 
+        font-size: 2.5rem; 
+        font-weight: 700; margin-bottom: 50px; 
+        color: var(--primary-color); 
+        position: relative; 
+        display: inline-block; 
+    }.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background: var(--text-color);
+    border-radius: 2px;
+}
+
+.card {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    box-shadow: var(--shadow);
+    border-radius: 15px;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Skills */
+.skills {
+    padding: 100px 0;
+}
+
+.skill-item {
+    margin-bottom: 25px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.progress {
+    height: 10px;
+    border-radius: 10px;
+    background-color: #333;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: var(--primary-color);
+    border-radius: 10px;
+    transition: width 1s ease-in-out;
+}
+
+/* Projects */
+.projects {
+    padding: 100px 0;
+}
+
+.project-card {
+    background: var(--secondary-color);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    margin-bottom: 30px;
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img img {
+    transform: scale(1.1);
+}
+
+.project-content {
+    padding: 25px;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.tech-badge {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-right: 8px;
+    margin-bottom: 10px;
+}
+
+/* Certification */
+.certifications {
+    padding: 100px 0;
+}
+
+.carousel-item img {
+    max-height: 400px;
+    object-fit: contain;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+/* Contact */
+.contact {
+    padding: 100px 0;
+}
+
+.contact-form {
+    background: var(--secondary-color);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.form-control {
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: #121212;
+    color: #fff;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 77, 166, 0.25);
+    color:black;
+}
+
+/* Footer */
+.footer {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 77, 166, 0.2);
+    color: var(--text-color);
+    margin: 0 10px;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+    /* Responsive */
+    @media (max-width: 768px) { 
+        .hero h1 { font-size: 2.5rem; } 
+        .section-title { font-size: 2rem; } 
+    }
+</style>
+</head>
+<body>
+
+<!-- Particles Background -->
+<div id="particles-js"></div>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 text-center text-md-start">
+                <h1>Hi, I'm Devapriya B</h1>
+                <p>A passionate Frontend Developer creating interactive web applications.</p>
+                <div>
+                    <a href="#projects" class="btn btn-primary me-3">View My Work</a>
+                    <a href="resume.jpg" class="btn btn-primary me-3">Resume</a>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="i'm.jpg" alt="John Doe Photo">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+         <div class="row">
+            <div class="col-lg-6 mb-4">
+                <p class="lead"> Hey there! 👋 I'm a passionate <strong>frontend developer</strong> still on my journey of learning and mastering the craft.  
+      I’m not fully there yet — but every line of code, every bug I fix, and every new concept I explore brings me one step closer. </p>
+                <p> What I love most about this field is the endless creativity to experimenting with new tools and frameworks, I see every project as both a challenge and an opportunity to grow.</p>
+                <p> Outside of coding, I enjoy reading tech blogs, and yes… sometimes breaking things just so I can fix them again .  
+      With curiosity as my fuel and Tea ☕ as my sidekick, I'm building my way forward — one project at a time.</p>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-md-6 mb-4"><div class="card h-100 text-center"><div class="card-body"><i class="fas fa-code fa-3x mb-3 text-primary"></i><h5>Frontend Development</h5><p>Creating responsive UIs</p></div></div></div>
+                    <div class="col-md-6 mb-4"><div class="card h-100 text-center"><div class="card-body"><i class="fas fa-mobile-alt fa-3x mb-3 text-primary"></i><h5>Responsive Design</h5><p>Works on all devices</p></div></div></div>
+                    <div class="col-md-6 mb-4"><div class="card h-100 text-center"><div class="card-body"><i class="fas fa-sun fa-3x mb-3 text-primary"></i><h5>Quick Learner</h5><p>Fast adaptive learner</p></div></div></div>
+                    <div class="col-md-6 mb-4"><div class="card h-100 text-center"><div class="card-body"><i class="fas fa-rocket fa-3x mb-3 text-primary"></i><h5>Performance Optimization</h5><p>Fast and efficient websites</p></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="skills">
+    <div class="container">
+        <h2 class="section-title">My Skills</h2>
+        <!-- Your skill bars remain same -->
+         <div class="row">
+            <div class="col-lg-6">
+                <div class="skill-item"><div class="skill-info"><span>HTML/CSS</span><span>85%</span></div><div class="progress"><div class="progress-bar" style="width:85%"></div></div></div>
+                <div class="skill-item"><div class="skill-info"><span>JavaScript</span><span>50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+                  <div class="skill-item"><div class="skill-info"><span>Git</span><span>65%</span></div><div class="progress"><div class="progress-bar" style="width:65%"></div></div></div>
+            </div>
+            <div class="col-lg-6">
+                <div class="skill-item"><div class="skill-info"><span>Bootstrap</span><span>70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+                <div class="skill-item"><div class="skill-info"><span>Canva</span><span>60%</span></div><div class="progress"><div class="progress-bar" style="width:60%"></div></div></div>
+                  <div class="skill-item"><div class="skill-info"><span>VS Code</span><span>70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+              
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects">
+    <div class="container">
+        <h2 class="section-title">My Projects</h2>
+          <div class="row">
+            <div class="col-md-4 mb-4"><div class="project-card"><div class="project-img"><img src="project.jpg.png" alt="Typewrite"></div><div class="project-content"><h3 class="project-title">Typewrite Institute website</h3><p>Responsive Typewriting Institute Management Website, The system manages student details, attendance, fees, and profiles, and enables institutes to create batches, verify students, and streamline overall management</p><div><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">JavaScript</span></div></div></div></div>
+            <div class="col-md-4 mb-4"><div class="project-card"><div class="project-img"><img src="project2.png" alt="Task Manager"></div><div class="project-content"><h3 class="project-title">Portfolio Website</h3><p>Used to create my own portfolio website, with creative animated background.</p><div><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">BOOTSTRAP</span><span class="tech-badge">JavaScript</span></div></div></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="certifications">
+    <div class="container">
+        <h2 class="section-title">My Certifications</h2>
+        <div id="certCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner text-center">
+                <div class="carousel-item active">
+                    <img src="Screenshot 2025-08-13 111110.png" alt="Certification 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="certificate2.png" alt="Certification 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="certificate 3.png" alt="Certification 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#certCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#certCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <form class="contact-form">
+            <input type="text" class="form-control" placeholder="Your Name" required>
+            <input type="email" class="form-control" placeholder="Your Email" required>
+            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/devapriya-balassoupramaniane-920536293/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/devapriya03" class="social-link"><i class="fab fa-github"></i></a>
+         
+        </div>
+        <p class="mt-3">&copy; 2025 Devapriya. All rights reserved.</p>
+    </div>  
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+// Particles.js config for stars background //
+particlesJS('particles-js', {
+  particles: {
+    number: { value: 120, density: { enable: true, value_area: 1000 } },
+    color: { value: "#ffffff" },
+    shape: { type: "circle" },
+    opacity: {
+      value: 0.8,
+      random: true,
+      anim: { enable: true, speed: 1, opacity_min: 0.3, sync: false }
+    },
+    size: {
+      value: 2,
+      random: true,
+      anim: { enable: true, speed: 2, size_min: 0.5, sync: false }
+    },
+    line_linked: { enable: false },
+    move: {
+      enable: true,
+      speed: 0.6,
+      direction: "none",
+      random: true,
+      straight: false,
+      out_mode: "out",
+      bounce: false
+    }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: { enable: true, mode: "repulse" },
+      onclick: { enable: true, mode: "push" }
+    },
+    modes: {
+      repulse: { distance: 80, duration: 0.4 },
+      push: { particles_nb: 4 }
+    }
+  },
+  retina_detect: true
+});
+</script>
+</body>
+</html>
